@@ -1,0 +1,163 @@
+.login {
+    margin: 10% auto;
+    width: 50%;
+    border: 2px solid darkblue;
+    padding: 15px;
+    border-radius: 25px;
+}
+
+.container {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+.hpContainer {
+    display: grid;
+    row-gap: 10px;
+    column-gap: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    grid-template-areas: 
+    "img1 img1 text1"
+    "text2 img2 img2";
+}
+
+.hpContainer .img1 {
+    grid-area: img1;
+}
+
+.hpContainer img {
+    max-width: 500px;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.hpContainer .img2 {
+    grid-area: img2;
+}
+.hpContainer .text1 {
+    grid-area: text1;
+    margin: auto;
+
+}
+.hpContainer .text2 {
+    grid-area: text2;
+    margin: auto;
+
+}
+
+.login img {
+    height: auto;
+    width: 50%;
+    margin: 10% auto;
+    display: block;
+}
+
+.login form {
+    display: block;
+    margin: 10% auto;
+    width: 50%;
+}
+
+header {
+    font-family: Arial, Helvetica, sans-serif;
+    color: lightpink;
+}
+
+h3 {
+    margin: 3% 43%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: lightpink;
+}
+
+.registered {
+    margin: 3% 43%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: lightpink;
+}
+
+#bookForm {
+    margin-left: 20%;
+}
+
+header img {
+    height: auto;
+    width: 100%;
+    border-radius: 5px;
+}
+
+body {
+    background: aliceblue;
+    margin: 5%;
+}
+
+a {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+}
+
+
+/* Add a whitesmoke background color to the top navigation */
+.topnav {
+    background-color: whitesmoke;
+    overflow: hidden;
+    margin: 10px;
+    top: 0;
+    height: auto;
+    align-self: start;
+}
+
+.topnav a:link {
+    color: black;
+    text-decoration: none;
+    
+}
+
+  /* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 35px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+ /* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+  
+/* Add an active class to highlight the current page */
+  .topnav a.active {
+    background-color:#FFDF6C;
+    color: #202020;
+  }
+
+table {
+      width: 100%;
+      text-align: center;
+      margin: 3% 0;
+  }
+
+th, td {
+      padding: 15px;
+}
+
+tr:hover {
+      background-color: rgb(253, 224, 228);
+    }
+
+.appwrap {
+    margin: 10% 2%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: lightpink;
+}
+footer {
+    margin: 10% 2%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: lightpink;
+}

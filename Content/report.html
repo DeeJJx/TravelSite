@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Report</title>
+</head>
+<body>
+    <h1>KF7013 - Website Security Report</h1>
+    <h2>Introduction</h2>
+    <p>During the development of this website security concerns greatly influenced the design and implementation of various features. As user details were required to access the website this meant a proper measure had to be taken to secure the information retrieved and safely store it within the database provided. Various forms of cyber attack presented themselves in the form of SQL injections, cross site scripting, session hijacking and password attacks. Counter measures were put in place in each webpage as discussed in the following report. </p>
+    <h3>Registration</h3>
+    <p>Securely registering user details is a major part of the website development.  Due to the required input from the user the page is open to cross-site-scripting (xss). Furthermore the data is input into a database leaving it vulnerable to SQL injection. (Sharma, 2013) recognises limitations of current prevention methods through the use of php prepared statements and functions such as htmlspecialchars(). (Sharma, 2013) proposes new methods by which it takes the complete application path and scans the entire files of web applications for SQL queries and inputs the entry points with respect to an array vul_sig() array. The proposed approach was found to prevent SQL injection and reflected cross site scripting with 100% effectiveness. Suggesting alternative measures may be used for site security.
+
+        In addition the use of password hashing was made to protect the users password upon registration. (Kamal, 2019) discusses the use of password hashing in cloud computing software. The article demonstrates how the use of long passwords alongside password hashing can be used to implement effective safety measures. A potential feature which could be implemented into the travel website is ensuring criteria is to be met for a strong password, for example only allowing passwords of a minimum character length.
+        </p>
+    <h3>Login</h3>
+    <p>The login form can be seen as another entry point for potential SQL injections and cross site scripting attacks. To provide resistance to these attacks htmlspecialchars function was used on the form submitted. In addition to a prepared statement used to bind parameters in the form of username. The prepared statement was used to help validate the username and login to the system using the correct session ID. An improvement could be made whereby another prepared statement could be implemented to retrieve the details of the user from the database in the form of an array. (Snehi, 2013) discusses various ways cross-site-scripting attacks can occur. This can be injected via url, exploiting client side code, exploiting external feed display and via permanently displayed data. Without proper protection the login form can also be a gateway for session hijacking and cookie poisoning.
+    </p>
+    <h3>Login - Fail
+    </h3>
+    <p>The function htmlspecialchars was used in production of this page to ensure the username of the user could not be manipulated by a potential security threat.</p>
+    <h3>Logout</h3>
+    <p>(Snyder, 2010) discusses how to prevent session hijacking and allow the user to navigate through the web with a sense of familiarity where temporarily saved data is stored securely through the use of cookies. Cookies allow the session ID to be specific to the user and store the variable safely. Hijacking can occur when a session is not suitably closed or destroyed when leaving a page or website. The logout page makes use of the natural php function _unset() and _destroy() to ensure session ID cannot be traced and therefore sensitive information accessed. </p>
+    <h3>Activities / Activities - 2
+    </h3>
+    <p>One of the positives taken from this page is the use of prepared statements to execute the booking feature. Whenever data is being submitted in the way of a form, prepared statements should be used to protect from cross site scripting, even in the case whereby a user is not required to actually type anything in.  
+
+        Improvements could be made for both pages by implementing additional prepared statements. Firstly the table of information displayed should use a prepared statement to request information from the activities table. Secondly the query used to populate the drop down menu with options is lacking an additional prepared statement.
+        </p>
+    <h3>Booked Activities
+    </h3>
+    <p>The dynamic data displayed for booked activities makes use of prepared statements to retrieve the information in a select query from the database. This is to ensure proper data sanitisation and help protect from cross-site-scripting attacks.
+
+    </p>
+    <h3>Search</h3>
+    <p>The search field requires input from the user in a form, as a result the input is sanitised by using htmlspecialchars to protect from SQL injections. Improvements could be made in this section through use of a prepared statement when retrieving the actual information from the database. The data displayed is done so through a standard sqlI query.
+        (Sakem, 2020) presents a technique for finding insecurities in web technology to detect and prevent SQL injection attacks called Input Data Analysis (IDA).  The system promotes checking for SQL injection by data analysis, inputting into a mirror database and then copying data over to the original database. Use of this system could be put in place for additional site security although it may be at a greater cost in time and money.
+        </p>
+    <h3>Javascript OpenWeather API
+    </h3>
+    <p>The OpenWeather API is a gateway for cross-site-scripting by altering javascript within the document object model. (Umar, 2019) explains how type 0 (DOM) based attacks attempt to hijack a loophole in client side scripts on a web page. The returned data from such a script can be altered to run malicious software on the hosts computer. A major factor in successful xss is the hosts inability to correctly sanitise input. In the case of the DOM this becomes more difficult as opposed to basic HTML.</p>
+    <h3>Conclusion</h3>
+    <p>In conclusion the web site provided successfully attempts to implement various methods of data sanitation through the use of php function and prepared statements. This bolsters the site's security and helps it resist SQL injection and xss attacks. However there are some instances where additional sanitation of data could be implemented to protect from future attacks.</p>
+    <h2>References</h2>
+    <ol>
+        <li>Sharma, P., 2013. Combined Approach To Prevent XSS Attacks And SQL Injection. [online] researchgate.net. Available at: <https://www.researchgate.net/publication/274734823_Combined_Approach_to_prevent_XSS_Attacks_and_SQL_injection> [Accessed 1 January 2021].
+        </li>
+        <li>Kamal, P., 2019. Security Of Password Hashing In Cloud. [online] researchgate.net. Available at: <https://www.researchgate.net/publication/331380160_Security_of_Password_Hashing_in_Cloud> [Accessed 1 January 2021].
+        </li>
+        <li>Snehi, J., 2013. Web Client And Web Server Approaches To Prevent XSS Attacks. [online] researchgate.net. Available at: <https://www.researchgate.net/publication/249998724_Web_Client_and_Web_Server_approaches_to_Prevent_XSS_Attacks> [Accessed 1 January 2021].
+        </li>
+        <li>Snyder, C., Myer, T. and Southwell, M., 2010. Pro PHP Security. Berkeley, CA: Apress, pp.93-104.
+        </li>
+        <li>Sakem, A., 2020. Mechanism To Detect And Prevent SQL Injection Attack From Programmer Side. [online] researchgate.net. Available at: <https://www.researchgate.net/publication/342784130_Mechanism_to_detect_and_prevent_SQL_injection_attack_from_programmer_side> [Accessed 1 January 2021].
+        </li>
+        <li>Umar, M., 2019. Web Abuse Using Cross Site Scripting (XSS) Attacks. [online] researchgate.net. Available at: <https://www.researchgate.net/publication/346713958_Web_Abuse_Using_Cross_Site_Scripting_XSS_Attacks> [Accessed 1 January 2021].
+        </li>
+
+    </ol>
+</body>
+</html>
